@@ -1,0 +1,83 @@
+\documentclass[8pt,aspectratio=169]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+
+
+\mode<presentation>
+{
+  \usetheme{metropolis}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  \setbeamertemplate{footline}{}
+  \setbeamerfont{title page}{size=\Large}
+  \setbeamerfont{institute}{size=\normalsize}
+} 
+
+%\usepackage[english]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{graphicx}
+%\usepackage{url}
+
+\VAR{package_string}
+
+\VAR{new_commands_string}
+
+\title[\VAR{talk.shorttitle}]{\VAR{talk.title}}
+\author{\VAR{talk.author_name}}
+\institute{\VAR{talk.author_institute}}
+\date{\VAR{talk.date}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\BLOCK{ for figure in figures }
+
+\subsection{\VAR{figure.sectionname}}
+
+\begin{frame}{\VAR{figure.sectionname}}
+
+	\begin{columns}
+
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item xxx
+				\item ccc
+			\end{itemize}
+			
+			\BLOCK{ for formula in figure.formulas }
+				$\VAR{formula}$
+			\BLOCK{ endfor }
+			
+		\end{column}
+
+		\begin{column}{0.5\textwidth}
+			\begin{figure}
+				\centering
+				%\includegraphics[height=\VAR{figure.heightfactor}\textheight]{\VAR{figure.filename}}
+				\includegraphics[width=\VAR{figure.heightfactor}\textwidth]{\VAR{figure.filename}}
+			\end{figure}
+		\end{column}
+
+	\end{columns}
+\end{frame}
+
+
+\BLOCK{ endfor }
+
+
+\begin{frame}[standout]
+\centering
+Thank you for your attention!
+
+\end{frame}
+
+\end{document}
